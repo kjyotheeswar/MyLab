@@ -25,12 +25,7 @@ pipeline{
             steps {
                 echo 'Deploying...'
                 }
-
             }
-        }
-
+    }      
         
-        
-    }
-
 }
