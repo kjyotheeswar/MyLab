@@ -35,7 +35,7 @@ pipeline{
 
         stage ('print values'){
             steps{
-                echo "Artifact ID is '${Artifactid}'"
+                echo "Artifact ID is '${ArtifactId}'"
                 echo "Version is '${Version}'"
                 echo "Name is '${Name}'"
             }
