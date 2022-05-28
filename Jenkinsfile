@@ -5,6 +5,12 @@ pipeline{
         maven 'maven'
     }
 
+    environment {
+        Artifactid = readmavenpom().get artifactid()
+        Version = readmavenpom().getVersion()
+        Name = readmavenpom().getName()
+    }
+
     stages {
         // Specify various stage with in stages        
         stage ('Build'){
@@ -24,6 +30,14 @@ pipeline{
         stage ('Publish to Nexus'){
             steps{
                 nexusArtifactUploader artifacts: [[artifactId: 'JoesDevOpsLab', classifier: '', file: 'target/JoesDevOpsLab-0.0.4.war', type: 'war']], credentialsId: 'a70083c1-9d77-4ab3-9b96-6e61d067fd4b', groupId: 'com.Joeslab', nexusUrl: '172.20.10.176:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'JoesDevopsLab-Snapshot', version: '0.0.4'
+            }
+        }
+
+        stage ('print values'){
+            steps{
+                echo "Artifact ID is '${Artifactid}'"
+                echo "Version is '${Version}'"
+                echo "Name is '${Name}'"
             }
         }
         // Stage3 : Publish the source code to Sonarqube
