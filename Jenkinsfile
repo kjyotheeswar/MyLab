@@ -9,7 +9,7 @@ pipeline{
         ArtifactId = readMavenPom().getArtifactId()
         Version = readMavenPom().getVersion()
         Name = readMavenPom().getName()
-        GroupId = readMavenPom.getGroupId()
+        GroupId = readMavenPom().getGroupId()
     }
 
     stages {
@@ -30,7 +30,7 @@ pipeline{
         // Stage3 : Publishing artifacts to Nexus
         stage ('Publish to Nexus'){
             steps{
-                nexusArtifactUploader artifacts: [[artifactId: '${ArtifactId}', classifier: '', file: 'target/JoesDevOpsLab-0.0.4.war', type: 'war']], credentialsId: 'a70083c1-9d77-4ab3-9b96-6e61d067fd4b', groupId: '${GroupId}', nexusUrl: '172.20.10.176:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'JoesDevopsLab-Snapshot', version: '${VersionId}'
+                nexusArtifactUploader artifacts: [[artifactId: '${ArtifactId}', classifier: '', file: 'target/JoesDevOpsLab-0.0.4.war', type: 'war']], credentialsId: 'a70083c1-9d77-4ab3-9b96-6e61d067fd4b', groupId: '${GroupId}', nexusUrl: '172.20.10.176:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'JoesDevopsLab-Snapshot', version: '${Version}'
             }
         }
 
