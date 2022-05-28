@@ -4,7 +4,7 @@
   <groupId>com.Joeslab</groupId>
   <artifactId>JoesDevOpsLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.3</version>
+  <version>0.0.4-Snapshot</version>
   <name>VinayDevOpsLab</name>
   <url>http://maven.apache.org</url>
   <dependencies>
