@@ -41,7 +41,7 @@ pipeline{
                 nexusUrl: '172.20.10.176:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
-                repository: 'JoesDevopsLab-Snapshot', 
+                repository: 'JoesDevopsLab-Release', 
                 version: "${Version}"
             }
         }
